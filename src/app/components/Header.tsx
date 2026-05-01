@@ -7,12 +7,12 @@ export default function Header() {
         <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-100 shadow-sm">
           <img 
             src="/felipe_avatar.png" 
-            alt="Felipe" 
+            alt="Usuario" 
             className="w-full h-full object-cover"
           />
         </div>
         <div className="flex items-center gap-1">
-          <span className="font-semibold">Hola, Felipe</span>
+          <span className="font-semibold">Hola, Usuario</span>
           <ChevronDown className="w-4 h-4 text-gray-400" />
         </div>
       </div>
