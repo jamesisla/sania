@@ -65,6 +65,23 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
   return (
     <div className="flex-1 overflow-auto pb-20">
       <div className="p-6">
+        {/* Alerta Crítica Widget - Botón largo parpadeante con animación urgente */}
+        <div 
+          onClick={() => onNavigate('alertas-criticas')}
+          className="mb-6 flex items-center bg-red-50 border-2 border-red-200 rounded-2xl p-4 cursor-pointer animate-urgent shadow-sm hover:shadow-md transition-all active:scale-[0.98]"
+        >
+          <div className="bg-red-500 p-2 rounded-xl mr-3 shadow-lg">
+            <AlertTriangle className="w-6 h-6 text-white" />
+          </div>
+          <div className="flex-1">
+            <h4 className="font-extrabold text-red-900 text-sm mb-0.5 leading-tight">ALERGIA A LA PENICILINA</h4>
+            <p className="text-[11px] text-red-700 font-medium">Antecedente de choque anafiláctico</p>
+          </div>
+          <div className="bg-red-100 text-red-700 text-[10px] font-black px-2 py-1 rounded-md">
+            ALERTA
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 gap-4">
           {menuItems.map((item) => {
             const Icon = item.icon;
@@ -88,22 +105,6 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
           })}
         </div>
 
-        {/* Alerta Crítica Widget - Botón largo parpadeante con animación urgente */}
-        <div 
-          onClick={() => onNavigate('alertas-criticas')}
-          className="mt-6 flex items-center bg-red-50 border-2 border-red-200 rounded-2xl p-4 cursor-pointer animate-urgent shadow-sm hover:shadow-md transition-all active:scale-[0.98]"
-        >
-          <div className="bg-red-500 p-2 rounded-xl mr-3 shadow-lg">
-            <AlertTriangle className="w-6 h-6 text-white" />
-          </div>
-          <div className="flex-1">
-            <h4 className="font-extrabold text-red-900 text-sm mb-0.5 leading-tight">ALERGIA A LA PENICILINA</h4>
-            <p className="text-[11px] text-red-700 font-medium">Antecedente de choque anafiláctico</p>
-          </div>
-          <div className="bg-red-100 text-red-700 text-[10px] font-black px-2 py-1 rounded-md">
-            ALERTA
-          </div>
-        </div>
       </div>
     </div>
   );
