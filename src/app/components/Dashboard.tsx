@@ -25,12 +25,21 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
       iconColor: 'text-white'
     },
     {
-      id: 'laboratorio',
+      id: 'laboratorioList',
       icon: FlaskConical,
       title: 'Laboratorio',
-      subtitle: 'Ver registros y datos',
+      subtitle: 'Historial de exámenes',
       bgColor: 'bg-green-50',
       iconBg: 'bg-[#27AE60]',
+      iconColor: 'text-white'
+    },
+    {
+      id: 'laboratorio',
+      icon: FlaskConical,
+      title: 'Lab (V-Antigua)',
+      subtitle: 'Vista previa',
+      bgColor: 'bg-gray-50',
+      iconBg: 'bg-gray-400',
       iconColor: 'text-white'
     },
     {

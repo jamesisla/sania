@@ -9,6 +9,8 @@ import Perfil from './components/Perfil';
 import Diagnosticos from './components/Diagnosticos';
 import Cirugias from './components/Cirugias';
 import Laboratorio from './components/Laboratorio';
+import LaboratorioList from './components/LaboratorioList';
+import LaboratorioM from './components/LaboratorioM';
 import AlertasReales from './components/AlertasReales';
 import Imagenes from './components/Imagenes';
 import Procedimientos from './components/Procedimientos';
@@ -18,6 +20,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [activeScreen, setActiveScreen] = useState<string | null>(null);
   const [showAddMenu, setShowAddMenu] = useState(false);
+  const [selectedSetId, setSelectedSetId] = useState<string | undefined>(undefined);
 
   const handleNavigate = (screen: string) => {
     setActiveScreen(screen);
@@ -49,6 +52,27 @@ export default function App() {
 
     if (activeScreen === 'laboratorio') {
       return <Laboratorio onBack={handleBack} />;
+    }
+
+    if (activeScreen === 'laboratorioList') {
+      return (
+        <LaboratorioList 
+          onBack={handleBack} 
+          onSelectSet={(id) => {
+            setSelectedSetId(id);
+            setActiveScreen('laboratorioM');
+          }} 
+        />
+      );
+    }
+
+    if (activeScreen === 'laboratorioM') {
+      return (
+        <LaboratorioM 
+          setId={selectedSetId}
+          onBack={() => setActiveScreen('laboratorioList')} 
+        />
+      );
     }
 
     if (activeScreen === 'alertas-criticas') {
